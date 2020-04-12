@@ -12,22 +12,30 @@ export default class Main extends React.Component {
         {
           title: 'Backlog',
           tasks: [],
-          select: '',
+          select: false,
+          hasSelect: false,
+          hasInput: true,
         },
         {
           title: 'Ready',
           tasks: [],
           select: '',
+          hasSelect: true,
+          hasInput: false,
         },
         {
           title: 'In progress',
           tasks: [],
           select: '',
+          hasSelect: true,
+          hasInput: false,
         },
         {
           title: 'Finished',
           tasks: [],
           select: '',
+          hasSelect: true,
+          hasInput: false,
         },
       ],
     }
@@ -53,22 +61,30 @@ export default class Main extends React.Component {
           tasks={this.state.tasks}
           handleAddTask={this.handleAddTask.bind(this, 0)}
           newSelect={this.newSelect.bind(this, 2)}
+          hasSelect={this.state.boards[0].hasSelect}
+          hasInput={this.state.boards[0].hasInput}
         />
 
         <Board
           title={this.state.boards[1].title}
           tasks={this.state.tasks}
           handleAddTask={this.handleAddTask.bind(this, 1)}
-        ></Board>
+          hasSelect={this.state.boards[1].hasSelect}
+          hasInput={this.state.boards[1].hasInput}
+        />
         <Board
           title={this.state.boards[2].title}
           tasks={this.state.boards[1].tasks}
           handleAddTask={this.handleAddTask.bind(this, 2)}
+          hasSelect={this.state.boards[2].hasSelect}
+          hasInput={this.state.boards[2].hasInput}
         />
         <Board
           title={this.state.boards[3].title}
           tasks={this.state.boards[2].tasks}
           handleAddTask={this.handleAddTask.bind(this, 3)}
+          hasSelect={this.state.boards[3].hasSelect}
+          hasInput={this.state.boards[3].hasInput}
         />
       </div>
     )

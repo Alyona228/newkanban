@@ -43,7 +43,7 @@ export default class Board extends React.Component {
     return (
       <div className='board'>
         <div className='board-title'>{this.props.title}</div>
-        {this.state.showInput ? (
+        {this.state.showInput && this.props.hasInput ? (
           <input
             className='new-task-input'
             value={this.state.value}
@@ -58,10 +58,14 @@ export default class Board extends React.Component {
             <li key={ind}>{item}</li>
           ))}
         </ul>
-        {this.state.showInput ? (
+        {this.state.showInput && this.props.hasSelect ? (
           <select className='select'>
             {this.props.tasks.map((item, ind) => (
-              <option key={ind} onClick={this.props.newSelect}>
+              <option
+                key={ind}
+                onClick={this.props.newSelect}
+                onBlur={this.inputBlur}
+              >
                 {item}
               </option>
             ))}
