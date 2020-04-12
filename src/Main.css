@@ -1,0 +1,10 @@
+.body__boards {
+  display: flex;
+  min-height: calc(100vh - 55px - 55px);
+  width: 1235px;
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  padding: 20px 16px 0 19px;
+  justify-content: space-between;
+}
