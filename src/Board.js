@@ -33,10 +33,9 @@ export default class Board extends React.Component {
     })
   }
   selectTasks = (tasks) => {
-    this.setState = {
+    this.setState({
       tasks: this.props.tasks[1],
-    }
-    console.log(tasks.lenght)
+    })
   }
 
   render() {
