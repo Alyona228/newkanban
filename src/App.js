@@ -6,6 +6,12 @@ import Footer from './Footer.js'
 // import Item from 'Item.js'
 
 export default class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      length: true,
+    }
+  }
   render() {
     return (
       <div className='App'>

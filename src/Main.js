@@ -8,6 +8,7 @@ export default class Main extends React.Component {
     this.state = {
       tasks: [],
       text: '',
+
       boards: [
         {
           title: 'Backlog',
@@ -41,18 +42,33 @@ export default class Main extends React.Component {
     }
   }
   handleAddTask = (index, task) => {
-    const tasks = this.state.tasks
-    tasks.push(task)
+    // const tasks = this.state.tasks
+    // tasks.push(task)
+    // this.setState = {
+    //   tasks: tasks,
+    // }
+    console.log(this.state.tasks)
+    this.state.tasks.push(task)
+  }
+  tasksActive = () => {
     this.setState = {
-      text: '',
-      tasks: task,
+      text: this.state.tasks.length,
     }
   }
+
   newSelect = (e) => {
     this.setState = {
       select: e.target.value,
     }
   }
+
+  // getPreviousBoardItems(boardIndex) {
+  //   if (boardIndex > 0) {
+  //     return this.state.boards[boardIndex - 1].items
+  //   }
+  //   return null
+  // }
+
   render() {
     return (
       <div className='body__boards'>
@@ -63,6 +79,7 @@ export default class Main extends React.Component {
           newSelect={this.newSelect.bind(this, 2)}
           hasSelect={this.state.boards[0].hasSelect}
           hasInput={this.state.boards[0].hasInput}
+          tasksActive={this.state.tasks.length}
         />
 
         <Board

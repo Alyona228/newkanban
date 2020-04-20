@@ -19,7 +19,6 @@ export default class Board extends React.Component {
     if (e.key === 'Enter') {
       this.props.handleAddTask(e.nativeEvent.target.value)
       this.setState({ text: '' })
-      console.log(e)
     }
   }
 
@@ -37,6 +36,7 @@ export default class Board extends React.Component {
     this.setState = {
       tasks: this.props.tasks[1],
     }
+    console.log(tasks.lenght)
   }
 
   render() {
@@ -52,7 +52,6 @@ export default class Board extends React.Component {
             onBlur={this.inputBlur}
           ></input>
         ) : undefined}
-
         <ul className='list'>
           {this.props.tasks.map((item, ind) => (
             <li key={ind}>{item}</li>
@@ -77,6 +76,7 @@ export default class Board extends React.Component {
         >
           +Add card
         </button>
+        <div className='length'>{this.props.tasksActive}</div>
       </div>
     )
   }
